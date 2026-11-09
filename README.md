@@ -24,25 +24,49 @@ DSH NEXT 设置里的「🎲 投骰进度」独立插件：查看 QQ 桥接机�
 
 运行时的数据源是 **qq-bridge 的控制台**（一个独立进程，不是 DSH 插件），需要它正在运行且其 `socialV2.proactive.mode` 为 `dice`。桥接没开时面板只会提示读不到状态，不会报错崩溃。
 
+## 下载
+
+仓库是**公开**的，任何人无需 GitHub 账号即可获取：
+
+| 方式 | 地址 |
+| --- | --- |
+| 源码 ZIP | <https://github.com/aooom4/dsh-qq-dice/archive/refs/heads/main.zip> |
+| 版本包 | <https://github.com/aooom4/dsh-qq-dice/releases>（推荐，对应固定版本） |
+| git clone | `git clone https://github.com/aooom4/dsh-qq-dice.git` |
+
+也可以直接打开仓库页 <https://github.com/aooom4/dsh-qq-dice> → 右上角 **Code → Download ZIP**。
+
+### 下载前请确认（重要）
+
+这个插件是 **DSH NEXT 桌面端 + qq-bridge** 这套环境的配套设置面板，不是装了就能用的通用工具。你需要：
+
+1. 本机已安装 **DSH NEXT**（Windows 桌面宿主）；
+2. 本机正在运行 **qq-bridge 控制台**（默认端口 3100），且 `socialV2.proactive.mode` 为 `dice`；
+3. 按下面的「安装」「配置」两步填好**你自己本机**的路径与令牌位置。
+
+如果只装了 DSH 而没有这套桥接，面板会显示「读不到桥接状态」，不会崩，但也不会有数据。`qq-bridge` 本身不在本仓库内。
+
 ## 安装
 
-1. 把本仓库放到 DSH 插件目录，例如 `~/.dsh/plugins/dsh-qq-dice`。
-2. 在 `~/.dsh/profiles/desktop/package.json` 里登记：
+1. 把本仓库放到 DSH 插件目录，例如 `~/.dsh/plugins/dsh-qq-dice`（Windows 下通常是 `C:\Users\<你的用户名>\.dsh\plugins\dsh-qq-dice`）。
+2. 在 `~/.dsh/profiles/desktop/package.json` 里**追加**两项（注意是合并进已有的 `dependencies` 和 `bundles` 数组，不要覆盖原有内容）：
 
    ```json
    "dependencies": {
-     "dsh-qq-dice": "link:C:/你的路径/.dsh/plugins/dsh-qq-dice"
+     "dsh-qq-dice": "link:C:/Users/<你的用户名>/.dsh/plugins/dsh-qq-dice"
    },
    "dsh": { "profile": { "bundles": [ "dsh-qq-dice" ] } }
    ```
 
-3. 在 `~/.dsh/profiles/desktop/node_modules/` 建一个指向插件目录的 junction（Windows）：
+   `link:` 后面必须换成**你本机的绝对路径**，照抄示例不会生效。
+3. 在 `~/.dsh/profiles/desktop/node_modules/` 下建一个指向插件目录的 junction（Windows 管理员或开发者模式）：
 
    ```cmd
-   mklink /J "node_modules\dsh-qq-dice" "C:\你的路径\.dsh\plugins\dsh-qq-dice"
+   mklink /J "node_modules\dsh-qq-dice" "C:\Users\<你的用户名>\.dsh\plugins\dsh-qq-dice"
    ```
 
-4. **从系统托盘完全退出 DSH 再重新打开**（关窗口不会重载插件）。设置左侧栏出现「🎲 投骰进度」即成功。
+   也可以用 `pnpm install` 让包管理器按 `link:` 自动建链。
+4. **从系统托盘完全退出 DSH 再重新打开**（点窗口右上角 X 只是缩到托盘，不会重载插件）。设置左侧栏出现「🎲 投骰进度」即成功；没有的话去看 `~/.dsh/logs/` 里当天的日志有没有 `dsh-qq-dice` 的加载记录。
 
 ## 配置（重要）
 
