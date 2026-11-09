@@ -1,0 +1,40 @@
+{
+  "name": "dsh-qq-dice",
+  "version": "1.0.0",
+  "description": "QQ 投骰进度（dsh-qq-dice）：DSH 设置里的独立栏目，展示 qq-bridge 主动消息「投骰进度」。不随 dsh-qq-bridge 更新而回退。",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "qq-bridge",
+    "dice",
+    "proactive"
+  ],
+  "main": "lib/host.js",
+  "exports": {
+    ".": "./lib/host.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "local.config.example.json"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "slots"
+      ],
+      "external": [
+        "react"
+      ]
+    }
+  }
+}

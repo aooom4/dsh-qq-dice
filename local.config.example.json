@@ -1,0 +1,5 @@
+{
+  "stateDir": "<改成你本机 qq-bridge 的 state 目录绝对路径>",
+  "consolePort": 3100,
+  "tokenFile": "console-token"
+}

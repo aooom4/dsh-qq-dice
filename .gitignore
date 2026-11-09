@@ -1,0 +1,14 @@
+# 本机私有配置：桥接状态目录 / 端口 / 令牌位置（含本机路径，绝不上传）
+local.config.json
+**/local.config.json
+
+# 运行时数据：命中统计里含真实会话标识（QQ 号 / 群号），属隐私
+state/
+lib/state/
+
+# 本地备份、日志、依赖
+*.bak-*
+*.log
+node_modules/
+.DS_Store
+Thumbs.db
