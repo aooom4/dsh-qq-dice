@@ -79,7 +79,7 @@ DSH NEXT 设置里的「🎲 投骰进度」独立插件：查看 QQ 桥接机�
 dsh plugin --profile desktop add github:aooom4/dsh-qq-dice
 ```
 
-`desktop` 换成你自己的 profile 名；若已发到 npm，也可以直接写包名 `dsh-qq-dice`。装完**从系统托盘完全退出 DSH 再重新打开**，设置左侧栏出现「🎲 投骰进度」即成功。
+`desktop` 换成你自己的 profile 名；本包同时发布在 [npm](https://www.npmjs.com/package/dsh-qq-dice)，也可以直接写包名 `dsh-qq-dice` 安装。装完**从系统托盘完全退出 DSH 再重新打开**，设置左侧栏出现「🎲 投骰进度」即成功。
 
 > 默认 `auto` 会自己找本机桥接，一般不用填配置；找不到时在「数据源」里切 `demo` 即可看到完整面板，或切 `custom` 填其它桥接的地址。
 
