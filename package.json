@@ -1,6 +1,6 @@
 {
   "name": "dsh-qq-dice",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "QQ 投骰进度（dsh-qq-dice）：DSH 设置里的独立栏目，展示投骰进度、平均投多少次命中一次，并可直接改参数即时生效。不随 dsh-qq-bridge 更新而回退。",
   "license": "MIT",
   "type": "module",
