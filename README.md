@@ -62,6 +62,18 @@ DSH NEXT 设置里的「🎲 投骰进度」独立插件：查看 QQ 桥接机�
 
 ## 安装
 
+### 从插件市场 / 命令行安装
+
+```bash
+dsh plugin --profile desktop add github:aooom4/dsh-qq-dice
+```
+
+`desktop` 换成你自己的 profile 名；若已发到 npm，也可以直接写包名 `dsh-qq-dice`。装完**从系统托盘完全退出 DSH 再重新打开**，设置左侧栏出现「🎲 投骰进度」即成功。
+
+> 本插件是 qq-bridge 的配套面板，装完还要按下面「配置」填好桥接地址与令牌。没有桥接时面板会显示「读不到桥接状态」，不会崩，但也没有真实数据；`qq-bridge` 本身不在本仓库内。
+
+### 手动安装（本地开发 / 不用 CLI 时）
+
 1. 把本仓库放到 DSH 插件目录，例如 `~/.dsh/plugins/dsh-qq-dice`（Windows 下通常是 `C:\Users\<你的用户名>\.dsh\plugins\dsh-qq-dice`）。
 2. 在 `~/.dsh/profiles/desktop/package.json` 里**追加**两项（注意是合并进已有的 `dependencies` 和 `bundles` 数组，不要覆盖原有内容）：
 
