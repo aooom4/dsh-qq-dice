@@ -18,10 +18,12 @@
     "./package.json": "./package.json"
   },
   "files": [
-    "lib",
+    "lib/host.js",
+    "lib/client.js",
     "cordis.patch.yml",
     "README.md",
-    "local.config.example.json"
+    "local.config.example.json",
+    "LICENSE"
   ],
   "dsh": {
     "bundle": {
